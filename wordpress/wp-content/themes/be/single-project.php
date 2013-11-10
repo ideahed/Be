@@ -5,8 +5,13 @@ $project_type = pods_field('project', false, 'project_type');
  <div id="container">
   <div id="project_header">
     <nav>
+      <? $args = array('post_type'=>'process','posts_per_page'=>-1);
+        $processes = get_posts($args);
+        foreach($processes as $process):
+        echo '<pre>'.print_r($process,true).'</pre>'; ?>
       <ul id="project_nav"> <!-- Get Custom Post Type: Project -->
         <li>Be</li>
+        <li><a href="#"><? echo $process->post_title ?></a></li>
         <li><a href="#">the brief</a></li>  <!-- Dynamic Menu - use Post_type: Process Point in Pods -->
         <li><a href="#">the challenge</a></li> <!-- Dynamic Menu - use Post_type: Process Point in Pods  -->
         <li><a href="#">the solution</a></li> <!-- Dynamic Menu - use Post_type: Process Point in Pods  -->
@@ -28,29 +33,31 @@ $project_type = pods_field('project', false, 'project_type');
         <div>Shares</div> <!-- dynamic - share count -->
       </div> <!-- metric bar -->
       <div id='project_detail'>
-        <? $args = array('post_type'=>'process','posts_per_page'=>-1);
-        $processes = get_posts($args);
-        foreach($processes as $process): ?>
-      <!-- <? /*echo '<pre>'.print_r($process,true).'</pre>'; */ ?> -->
+        <!-- <? //echo '<pre>'.print_r($process,true).'</pre>'; ?> -->
         <div id="project_slideshow"> <!-- use guid for src in img tag use post_excerpt for caption -->
           <? $args = array('post_type'=>'attachment', 'post_parent'=> $process->ID, 'posts_per_page'=>-1);
           $attachments = get_posts($args);
           foreach($attachments as $attachment): ?>
-            <? // echo '<pre>'.print_r($attachments,true).'</pre>'; ?>
-          <nav id="slideshow_nav"></nav>
+          <!-- <? // echo '<pre>'.print_r($attachments,true).'</pre>'; ?> -->
         <? endforeach; ?>
       </div> <!-- project slideshow -->
       <div id="caption"></div>
-      <div><p><? the_content();?> </p></div>
-    </div>  <!-- Process Pod Content  -->
-    <div id= "project_materials">Materials / Tools
-      <a href="#"><? the_terms( $process->ID, 'materials'); ?></a>
-      <a href="#">Plaster"</a>
-      <a href="#">"High Density Foam"</a>
-      <a href="#">CNC Mill"</a>
-      <a href="#">Vacuum Form"</a>
-      <a href="#">ZCORP 3D PRINTER"</a>
-    </div> <!-- dynamic - based on post tags-->
+      <div><? echo $process->post_title ?> </div>
+      <div><p><? echo $process->post_content ?></p></div><!-- Process Pod Content  -->
+    </div>  
+    <div id= "project_materials">
+      <h3>Materials / Tools</h3>
+      <? $process_materials = wp_get_object_terms($process->ID, 'material');
+      $process_tools = wp_get_object_terms($process->ID, 'tool');
+      echo '<ul>';
+      foreach($process_materials as $material){
+        echo '<li><a href="'.get_term_link($material->slug, 'material').'">'.$material->name.'</a></li>';
+      }
+      foreach($process_tools as $tool){
+        echo '<li><a href="'.get_term_link($tool->slug, 'tool').'">'.$tool->name.'</a></li>'; 
+      }
+      echo '</ul>'; ?>
+    </div> <!-- project materials - pulled from custom taxonomy in pods -->
   </div>
   <nav id="project_share_nav">
     <ul>
@@ -59,7 +66,6 @@ $project_type = pods_field('project', false, 'project_type');
       <li>Appreciate</li>
     </ul> 
   </nav>
-
 </div> <!-- project-content -->
 <? endforeach; ?>
 
