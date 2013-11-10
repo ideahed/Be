@@ -1,53 +1,55 @@
-<!DOCTYPE html>
-<head>
-  <title>Behance Process Book</title>
-</head>
-  <nav>
-    <ul id="main nav">
-      <li><a href="#">Behance</a></li>
-      <li><a href="#">ACTIVITY</a></li>
-      <li><a href="#">DISCOVER</a></li>
-      <li><a href="#">MY PORTFOLIO</a></li>
-      <li><a href="#">JOBS</a></li>
-      <li><a href="#">Add Work</a></li>
-    </ul>
-  </nav>
-<body>
+<? get_header(); ?>
+<? query_posts('post-type=process$posts_per_page = -1') ?>
   <div id="container">
-    <nav>
-      <ul id="project_nav">
-        <li>Be</li>
-        <li><a href="#">the brief</a></li>  <!-- Dynamic Menu - use Post_type: Process Point in Magic Fields -->
-        <li><a href="#">the challenge</a></li> <!-- Dynamic Menu - use Post_type: Process Point in Magic Fields -->
-        <li><a href="#">the solution</a></li> <!-- Dynamic Menu - use Post_type: Process Point in Magic Fields -->
-        <li><a href="#">the results</a></li> <!-- Dynamic Menu - use Post_type: Process Point in Magic Fields -->
-      </ul>
-    </nav>
-    <div id="upload_content">
-      <nav id="add_media_side_nav">
-      </nav>
-      <nav id="customize_design_side_nav">
-      </nav>
-      <div class="pop_up_inner">
-        <div id="pop_up_header">
-          <h4>Share your process or key deliverables.</h4>
-            <span>(e.g. Inspiration, Creative Brief, Prototyping, Development etc.</span>
-        </div>
-        <div id="process_point_form">
-          <div id="process_point_container">
-            <h5>Select Process Point</h5>
-            <ul class="process_point"> <!-- Dynamic from Post Type - Process Point -->
-              <li>The Brief</li>
-              <li>The Challenge</li>
-              <li>The Solution </li>
-              <li>The Results</li>
-              <li>Inspiration</li> 
-              <li>Prototyping</li>
-            </ul>
-          </div>
-        </div>
+    <div id="parallax_project_header">
+      <nav>
+        <ul id="project_nav"> - <!-- Get Custom Post Type: Project -->
+          get_posts();
+          <li>Be</li>
+          <li><a href="#">the brief</a></li>  <!-- Dynamic Menu - use Post_type: Process Point in Pods -->
+          <li><a href="#">the challenge</a></li> <!-- Dynamic Menu - use Post_type: Process Point in Pods  -->
+          <li><a href="#">the solution</a></li> <!-- Dynamic Menu - use Post_type: Process Point in Pods  -->
+          <li><a href="#">the results</a></li> <!-- Dynamic Menu - use Post_type: Process Point in Pods  -->
+        </ul>
+        <div id="project_creator">
+          <div id="follow_creator"></div>
+          <div id="share_creator"></div>
+        </div> <!-- dynamic - based on post author -->
+      </div> <!-- project-header -->
+      <div id="project_content"> <!-- get_posts: process
+        <div id="project_title"><? ?></div> <!-- Dynamic - use "The Title WP Function" -->
+        <div id="project_category">get</div> <!-- dynamic - not sure what this should be -->
+        <div id="metric_bar"> <!-- consider using sprite for icons -->
+          <div>Views</div> <!-- dynamic - view count -->
+          <div>Appreciatons</div> <!-- dynamic - likes count -->
+          <div>Comments</div> <!-- dynamic - comment count -->
+          <div>Shares</div> <!-- dynamic - share count -->
+        </div> <!-- metric bar -->
+        <div id="project_slideshow">
+          <nav id="slideshow_nav"></nav>
+        </div> <!-- dynamic - based on post featured image -->
+        <div id="process_point_title"><?php single_post_title(); ?></div>  <!-- based on Single_Post_title -->
+          <p><? the_content();?> </p> <!-- dynamic - based on the_content -->
+        </div> 
+        <div id= "project_materials">Materials / Tools
+          <a href="#">Extruded Acrylic"</a>
+          <a href="#">Plaster"</a>
+          <a href="#">"High Density Foam"</a>
+          <a href="#">CNC Mill"</a>
+          <a href="#">Vacuum Form"</a>
+          <a href="#">ZCORP 3D PRINTER"</a>
+        </div> <!-- dynamic - based on post tags-->
+        <nav id="project_share_nav">
+          <ul>
+            <li>Share</li>
+            <li>Comment</li>
+            <li>Appreciate</li>
+          </ul> 
+        </nav>
 
-      </div>
-    </div> <!-- upload-content -->
-  </div>
-</body>
+      </div> <!-- project-content -->
+    </div>
+    <?php endwhile; else: ?>
+<p><?php _e('Sorry, no posts matched your criteria.'); ?></p>
+<?php endif; ?>
+ <? get_footer(); ?>

@@ -1,6 +1,6 @@
 <? get_header(); ?>
 <? if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
- echo '<pre>'.print_r(the_post, true).'</pre>';
+ <? echo '<pre>'.print_r($post, true).'</pre>'; ?>
 <div id="container">
   <div id="parallax_project_header">
     <nav>
