@@ -11,7 +11,11 @@ $project_type = pods_field('project', false, 'project_type');
         // echo '<pre>'.print_r($process,true).'</pre>'; ?>
       <ul id="project_nav"> <!-- Get Custom Post Type: Project -->
         <li>Be</li>
-        <li><a href="<? echo get_permalink( $process->ID);?>"><? echo $process->post_title ?></a></li>
+        <? $args = array('post_type'=>'process','posts_per_page'=>-1, 'orderby'=>'post_date', 'order'=>'ASC');
+        $processes = get_posts($args);
+        foreach($processes as $process){
+        echo '<li><a href="'.get_permalink($process->ID).'">'.$process->post_title.'</a></li>'; 
+        } ?>
       </ul>
       <div id="project_creator"><? the_author(); ?>
         <div id="follow_creator"></div>
