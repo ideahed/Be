@@ -1,0 +1,1 @@
+<? define("FILES", get_stylesheet_directory_uri());?>

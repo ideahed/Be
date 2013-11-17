@@ -1,0 +1,125 @@
+#project_content {
+  position: relative;
+  width: 100%;
+
+}
+
+#project_header {
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+}
+
+#project_info {
+  position: absolute;
+  left: 166px;
+  top: 30px;
+  width: 100%;
+  background-color: #FFFFFF;
+}
+
+#project_nav {
+  position: absolute;
+  left: 10px;
+  top: 100px;
+}
+
+#project_nav h1 {
+  font-family: 'helvetica neue';
+  font-size: 3.5em;
+  font-weight: bold;
+}
+
+#project_info li {
+  float: left;
+  padding: 5px;
+}
+
+#project_title {
+  font-family: "helvetica neue";
+  font-size: 2em;
+  font-weight: bold;
+}
+
+#project_creator {
+  position: absolute;
+  left: 1130px;
+  top: 100px;
+}
+
+.project_detail {
+  position: relative;
+  left: 166px;
+  top: 150px;
+  width: 540px;
+}
+
+/*.project_slideshow {
+  position: relative;
+  
+  overflow: hidden;
+}*/
+
+.caption {
+  /*position: relative;*/
+  left: 166px;
+  top: 700px;
+  width: 590px;
+}
+
+.project_materials {
+  /*  position: relative;*/*/
+  left: 780px;
+  top: 700px;
+/*  width: 590px;*/
+}
+
+.project_share_nav {
+  position: relative;
+  left: 1000px;
+  top: 700px;
+}
+
+.project_share_nav li {
+  float: left;
+}
+
+.overline {
+  text-decoration: overline;
+}
+
+.BEICON, .CommentIcon, .LikeIcon, .ShareIcon, .ViewsIcon{
+  background: url(sprites.png) no-repeat;
+}
+
+.BEICON {
+  background-position: -1px 0;
+  width: 100px;
+  height: 70px;
+}
+
+.CommentIcon {
+  background-position: -250px 0;
+  width: 75px;
+  height: 70px;
+}
+
+.LikeIcon {
+  background-position: -324px 0;
+  width: 75px;
+  height: 70px;
+}
+
+.ShareIcon {
+  background-position: -175px 0;
+  width: 75px;
+  height: 70px;
+}
+
+.ViewsIcon{
+  background-position: -100px 0;
+  width: 75px;
+  height: 70px;
+}
+
+

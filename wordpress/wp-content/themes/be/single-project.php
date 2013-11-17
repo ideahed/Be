@@ -4,12 +4,12 @@ $project_type = pods_field('project', false, 'project_type');
  // echo '<pre>'.print_r($process, true).'</pre>'; ?>
  <div id="container">
   <div id="project_header">
-    <nav>
+    <nav id="project_nav">
       <? $args = array('post_type'=>'process','posts_per_page'=>-1, 'orderby'=>'post_date', 'order'=>'ASC');
         $processes = get_posts($args);
         foreach($processes as $process):
         // echo '<pre>'.print_r($process,true).'</pre>'; ?>
-      <ul id="project_nav"> <!-- Get Custom Post Type: Project -->
+      <ul> <!-- Get Custom Post Type: Project -->
         <li>Be</li>
         <? $args = array('post_type'=>'process','posts_per_page'=>-1, 'orderby'=>'post_date', 'order'=>'ASC');
         $processes = get_posts($args);

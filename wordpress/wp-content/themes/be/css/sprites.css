@@ -1,0 +1,34 @@
+.BEICON, .CommentIcon, .LikeIcon, .ShareIcon, .ViewsIcon{
+	background: url(sprites.png) no-repeat;
+}
+
+.BEICON{
+	background-position: -1px 0;
+	width: 100px;
+	height: 70px;
+}
+
+.CommentIcon{
+	background-position: -250px 0;
+	width: 75px;
+	height: 70px;
+}
+
+.LikeIcon{
+	background-position: -324px 0;
+	width: 75px;
+	height: 70px;
+}
+
+.ShareIcon{
+	background-position: -175px 0;
+	width: 75px;
+	height: 70px;
+}
+
+.ViewsIcon{
+	background-position: -100px 0;
+	width: 75px;
+	height: 70px;
+}
+
