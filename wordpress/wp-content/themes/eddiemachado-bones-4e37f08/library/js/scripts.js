@@ -88,12 +88,13 @@ jQuery(document).ready(function($) {
 //     }
 //   });
 // });
+// THIS CONTROLS THE EDIT FORM FUNCTION AND NEEDS TO OPEN UP IN LIGHT BOX
+$(".edit_process_form").hide();
 
-// $(".edit_process_form").hide();
-
-$( ".edit_process" ).click(function() {
-  $(this).closest(".edit_section").fancybox(".edit_process_form");
+$( ".edit_section" ).click(function() {
+  $(this).closest(".edit_process_form").show();
 });
+// END EDIT FORM FUNCTION
 
 
 /* end of as page load scripts */

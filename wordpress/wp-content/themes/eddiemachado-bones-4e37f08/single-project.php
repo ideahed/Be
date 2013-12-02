@@ -110,13 +110,17 @@ $project_type = pods_field('project', $post->ID, 'project_type');
     ?> 
 <div class="edit_section">
   <? if ($post->post_author == $current_user->ID) 
-      echo '<a href="#" class="edit_process">edit</a>'; 
-   ?> 
+      echo '<a href="#" class="edit_process">Edit</a>'; 
+  ?> 
 
-   <div class="edit_process_form">
-    <? $process = pods('process, $id');
-    echo $process->form();  ?>
-   </div>
+    <?  
+    // need to get the post ID so I can pass the id to the pods form function
+     echo '<div class="edit_process_form">';
+     echo '<h3> Edit Process Point </h3>';
+     $id = get_the_ID();
+     echo pods( 'process', $id)->form();
+     echo '</div>';
+     ?>
 </div> 
 </div> <!-- project detail --> 
 
@@ -124,6 +128,7 @@ $project_type = pods_field('project', $post->ID, 'project_type');
 <div id="add_process_section">
 <? if ($post->post_author == $current_user->ID) {
  echo '<div id="add_process">';
+ echo '<h3> Add Process Point </h3>';
   $process = pods('process');
  echo $process->form();
  echo '</div>'; }
