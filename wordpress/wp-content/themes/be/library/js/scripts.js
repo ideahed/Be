@@ -30,6 +30,17 @@ if (!window.getComputedStyle) {
 // as the page loads, call these scripts
 jQuery(document).ready(function($) {
 
+	// http://stackoverflow.com/questions/6677035/jquery-scroll-to-element
+	// you will need extra white space under the last element or else it wont scroll to the top of the page
+	$("#project_nav a").click(function() {
+    	$('html, body').animate({
+       	 	scrollTop: $($(this).attr('href')).offset().top-113
+		}, 2000);
+		return false;
+	});
+
+
+
 	/*
 	Responsive jQuery is a tricky thing.
 	There's a bunch of different ways to handle
