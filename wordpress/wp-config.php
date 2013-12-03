@@ -13,19 +13,23 @@
  *
  * @package WordPress
  */
+ 
+define('WP_HOME', 'http://nj.id2.thommeredith.com'); // no trailing slash
+define('WP_SITEURL',WP_HOME);  // no trailing slash
+ 
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-define('DB_NAME', 'wordpress');
+define('DB_NAME', 'db77152_nj');
 
 /** MySQL database username */
-define('DB_USER', 'root');
+define('DB_USER', 'db77152_nj');
 
 /** MySQL database password */
-define('DB_PASSWORD', 'root');
+define('DB_PASSWORD', 'artcenter');
 
 /** MySQL hostname */
-define('DB_HOST', 'localhost');
+define('DB_HOST', 'internal-db.s77152.gridserver.com');
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8');
